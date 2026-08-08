@@ -8,10 +8,9 @@ from livekit.wakeword import (
     run_eval,
 )
 
-# Load the config from YAML — this must match the same file you used with
+# Load the config from YAML
 # `livekit-wakeword setup --config hey_leo.yaml`, so setup and training
-# stay in sync.
-config = load_config("hey_leo.yaml")
+config = load_config("Hey_Leo.yaml")
 
 # Run the pipeline stage by stage
 run_generate(config)     # TTS synthesis + adversarial negatives
