@@ -54,7 +54,7 @@ deactivate
 This returns your terminal to the system Python. Run `source venv/bin/activate` again next time you want to work on this project.
 
 ## Training
-
+Takes 45-90 minutes
 1. **Download required model artifacts** (TTS voice model, embedding model, and the ACAV100M negative-audio dataset — this step downloads several GB, so it can take a while depending on your connection):
 ```bash
 livekit-wakeword setup --config hey_leo.yaml
