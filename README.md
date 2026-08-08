@@ -29,8 +29,7 @@ sudo apt install espeak-ng ffmpeg sox libsndfile1 portaudio19-dev
 
 1. **Clone the repo**
 ```bash
-git clone https://github.com/<your-username>/hey-leo-wakeword.git
-cd hey-leo-wakeword
+git clone https://github.com/Rihan-q/WakeWord.git
 ```
 
 2. **Create and activate a virtual environment**
