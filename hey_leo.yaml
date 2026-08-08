@@ -1,0 +1,47 @@
+model_name: hey_leo
+target_phrases:
+  - "hey leo"
+
+# --- Data generation ---
+n_samples: 10000          # positive/adversarial-negative training samples per class
+n_samples_val: 2000        # held-out samples per class for validation
+
+# Background noise as a standalone negative class (in addition to noise overlay in augmentation)
+n_background_samples: 200
+n_background_samples_val: 40
+
+# --- Model architecture ---
+model:
+  model_type: conv_attention   # conv_attention (recommended), dnn, or rnn
+  model_size: small            # tiny, small, medium, large
+
+# --- Training ---
+steps: 50000
+learning_rate: 0.0001
+weight_decay: 0.01
+label_smoothing: 0.05
+max_negative_weight: 1500.0
+target_fp_per_hour: 0.2        # false positives/hour target used for threshold optimization
+
+# Per-class batch composition
+batch_n_per_class:
+  positive: 50
+  adversarial_negative: 50
+  ACAV100M_sample: 1024
+  background_noise: 50
+
+# --- Augmentation ---
+augmentation:
+  background_paths:
+    - ./data/backgrounds        # default MUSAN noise corpus
+    # - ./data/my-custom-noise  # add your own recordings here
+
+# --- TTS backend ---   ## Add this to more optimize your wake word as per your environment
+# Default is Piper TTS (English only). "hey leo" is an English phrase,
+# so the default backend is fine — uncomment below only if you want
+# multilingual variants via VoxCPM.
+# tts_backend: voxcpm
+# voxcpm_tts:
+#   voice_design_prompts:
+#     - "young adult male, neutral accent, medium pace"
+#     - "older female, warm tone, slightly slower pace"
